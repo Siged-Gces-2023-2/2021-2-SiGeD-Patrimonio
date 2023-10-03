@@ -65,10 +65,17 @@ const deletePatrimony = async (req, res) => {
   }
 }
 
+const printPatrimony = async (req, res) => {
+  const patrimonies = await Patrimony.find();
+  console.log("chegou no print")
+  return res.json(patrimonies);
+};
+
 module.exports = {
   getAll,
   getOne,
   createPatrimony,
   updatePatrimony,
-  deletePatrimony
+  deletePatrimony,
+  printPatrimony
 };
