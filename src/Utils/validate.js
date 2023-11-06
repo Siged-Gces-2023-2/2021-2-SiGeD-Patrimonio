@@ -13,7 +13,8 @@ const validate = (name, description) => {
 
   if (!validateName(name)) {
     err.push('invalid name');
-  } if (!validateDescription(description)) {
+  } 
+  if (!validateDescription(description)) {
     err.push('invalid description');
   }
   return err;
