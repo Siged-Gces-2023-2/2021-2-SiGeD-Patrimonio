@@ -4,7 +4,7 @@ const validateName = (name) => {
 };
 
 const validateDescription = (description) => {
-  const regex = /^[a-zA-Z ]{2,50}$/;
+  const regex = /^[a-zA-Z0-9 ]{2,50}$/;
   return (regex.test(description) && description !== undefined);
 };
 
