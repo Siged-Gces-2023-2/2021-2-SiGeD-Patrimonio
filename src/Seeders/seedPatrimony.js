@@ -1,4 +1,4 @@
-import Patrimony from "../Models/PatrimonySchema.js";
+import Patrimony from "../Models/PatrimonySchema";
 import { on, once, close } from "../config/dbConnect";
 
 const patrimonies = [
