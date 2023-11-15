@@ -91,9 +91,9 @@ once("open", () => {
 
 const patrimoniesLength = patrimonies.length;
 
-patrimonies.forEach(async (patrimony, index) => {
+patrimonies.forEach(async (_patrimony, index) => {
   try {
-    const result = await patrimony.save();
+    // const result = await patrimony.save();
     if (index === patrimoniesLength - 1) {
       console.log("Patrimonies seeds done!");
       close();
