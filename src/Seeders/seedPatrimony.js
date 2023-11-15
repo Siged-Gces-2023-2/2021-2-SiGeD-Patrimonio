@@ -1,5 +1,5 @@
-const Patrimony = require("../Models/PatrimonySchema.js");
-const db = require("../config/dbConnect");
+import Patrimony from "../Models/PatrimonySchema.js";
+import { on, once, close } from "../config/dbConnect";
 
 const patrimonies = [
   new Patrimony({
@@ -84,8 +84,8 @@ const patrimonies = [
   }),
 ];
 
-db.on("error", console.log.bind(console, "Error on connecting to MongoDB"));
-db.once("open", () => {
+on("error", console.log.bind(console, "Error on connecting to MongoDB"));
+once("open", () => {
   console.log("MongoDB is connected");
 });
 
@@ -96,12 +96,12 @@ patrimonies.forEach(async (patrimony, index) => {
     const result = await patrimony.save();
     if (index === patrimoniesLength - 1) {
       console.log("Patrimonies seeds done!");
-      db.close();
+      close();
     }
   } catch (error) {
     const err = new Error(`${error?.message}`);
     console.log(`Patrimony seed failed - ${err}`);
-    db.close();
+    close();
     process.exit(0);
   }
 });
